@@ -1,11 +1,14 @@
 package br.usjt.projeto_previsoes.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Previsao implements Serializable {
@@ -22,6 +25,38 @@ public class Previsao implements Serializable {
 	private Double tempMax;
 	
 	private int umidade;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dataHora;
+
+	public Date getDataHora() {
+		return dataHora;
+	}
+
+	public void setDataHora(Date dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	public Double getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(Double latitude) {
+		this.latitude = latitude;
+	}
+
+	public Double getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(Double longitude) {
+		this.longitude = longitude;
+	}
+
+	private Double latitude;
+
+	private Double longitude;
+
 	
 	
 	private String descricao;
