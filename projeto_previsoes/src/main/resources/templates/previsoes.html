@@ -14,8 +14,9 @@
 			<p>Jorge Sampaio de lima RA: 81513901</p>
 		</div>
 		<form class="form-inline" method="post" th:object="${previsao}" th:action="@{/previsoes}" style="margin: 20px">
+
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="Dia da Semana" th:field="*{diaSemana}"/>
+				<input type="text" class="form-control" placeholder="Nº do dia da Semana" th:field="*{diaSemana}"/>
 				<input type="text" class="form-control" placeholder="Temp. Min." th:field="*{tempMin}" pattern="[0-9]*\.?[0-9]*" title="Insira apenas números e divididos por ponto (.)"/>
 				<input type="text" class="form-control" placeholder="Temp. Max." th:field="*{tempMax}" pattern="[0-9]*\.?[0-9]*" title="Insira apenas números e divididos por ponto (.)"/>
 				<input type="text" class="form-control" placeholder="Umidade" th:field="*{umidade}"/>
@@ -42,7 +43,7 @@
 				</thead>
 				<tbody>
 					<tr th:each="previsao:${previsoes}">
-						<td th:text="${previsao.diaSemana}"></td>
+						<td th:text="${previsao.DiaSemana.nome}"></td>
 						<td th:text="${previsao.tempMin + '°C'}"></td>
 						<td th:text="${previsao.tempMax + '°C'}"></td>
 						<td th:text="${previsao.umidade + '%'}"></td>

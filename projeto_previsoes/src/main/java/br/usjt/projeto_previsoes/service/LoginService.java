@@ -10,6 +10,7 @@ import br.usjt.projeto_previsoes.repository.UsuarioRepository;
 
 
 
+
 @Service
 public class LoginService {
 	@Autowired
@@ -18,4 +19,5 @@ public class LoginService {
 	public boolean logar(Usuario usuario) {
 		return usuarioRepo.findOneByLoginAndSenha(usuario.getLogin(), usuario.getSenha()) != null;
 	}
+	
 } 
