@@ -9,8 +9,6 @@ import br.usjt.projeto_previsoes.repository.UsuarioRepository;
 
 
 
-
-
 @Service
 public class LoginService {
 	@Autowired

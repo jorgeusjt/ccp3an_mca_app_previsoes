@@ -21,8 +21,6 @@
 				<input type="text" class="form-control" placeholder="Temp. Max." th:field="*{tempMax}" pattern="[0-9]*\.?[0-9]*" title="Insira apenas números e divididos por ponto (.)"/>
 				<input type="text" class="form-control" placeholder="Umidade" th:field="*{umidade}"/>
 				<input type="text" class="form-control" placeholder="Descrição" th:field="*{descricao}"/>
-				<input type="text" class="form-control" placeholder="Latitude" th:field="*{latitude}" pattern="[0-9]*\.?[0-9]*" title="Insira a latitude"/>
-				<input type="text" class="form-control" placeholder="Longitude" th:field="*{longitude}" pattern="[0-9]*\.?[0-9]*" title="Insira a logitude"/>
 				
 				<button type="submit" class="btn btn-primary">Adicionar</button>
 			</div>
@@ -36,8 +34,8 @@
 						<th>Temp. Maxima</th>
 						<th>Umidade</th>
 						<th>Descrição</th>
-						<th>Latitude</th>
-						<th>Longitude</th>
+						<th>Latitude / Longitude</th>
+						<th>Estado</th>
 						<th>Data/Hora Cadastro</th>
 					</tr>
 				</thead>
@@ -48,8 +46,8 @@
 						<td th:text="${previsao.tempMax + '°C'}"></td>
 						<td th:text="${previsao.umidade + '%'}"></td>
 						<td th:text="${previsao.descricao}"></td>
-						<td><a th:href="@{'https://maps.google.com/maps?q='+${previsao.latitude}+','+${previsao.longitude}}" target="_blank" th:text="${previsao.latitude}" title="Clique para ver no Google Maps"></a></td>
-						<td><a th:href="@{'https://maps.google.com/maps?q='+${previsao.latitude}+','+${previsao.longitude}}" target="_blank" th:text="${previsao.longitude}" title="Clique para ver no Google Maps"></a></td>
+						<td><a th:href="@{'https://maps.google.com/maps?q='+${previsao.cidade.latitude}+','+${previsao.cidade.longitude}}" target="_blank" th:text="@{${previsao.cidade.latitude}+',  '+${previsao.cidade.longitude}}" title="Clique para ver no Google Maps"></a></td>
+						<td th:text="${previsao.cidade.nome}" ></td>
 						<td th:text="${#dates.format(previsao.dataHora, 'dd/MM/yyyy hh:mm:ss')}"></td>
 					</tr>
 				</tbody>
